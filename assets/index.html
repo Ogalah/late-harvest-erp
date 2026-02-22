@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Late Harvest Wines | Private Concierge</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wine: { 50: '#fdf2f4', 100: '#fce7ea', 600: '#722F37', 700: '#5D252D', 900: '#38161b' },
+                        gold: { 400: '#D4AF37' }
+                    },
+                    fontFamily: { sans: ['Lato', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-800 antialiased font-sans">
+
+   <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-20">
+            
+            <div class="flex-shrink-0 flex items-center">
+                <a href="index.html" class="text-2xl font-serif text-wine-900 tracking-wide font-bold">
+                    LATE HARVEST
+                </a>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Home</a>
+                <a href="about.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">About</a>
+                <a href="services.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Services</a>
+                <a href="blog.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Journal</a>
+            </div>
+
+            <div class="hidden md:flex">
+                <a href="contact.html" class="px-6 py-2 bg-wine-900 text-white text-xs uppercase tracking-widest hover:bg-wine-700 transition-colors duration-300">
+                    Contact
+                </a>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-gray-600 hover:text-wine-900 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
+        <div class="px-4 pt-2 pb-6 space-y-1">
+            <a href="index.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">Home</a>
+            <a href="about.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">About</a>
+            <a href="services.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">Services</a>
+            <a href="blog.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">Journal</a>
+            <a href="contact.html" class="block px-3 py-3 text-base font-bold text-wine-900 hover:bg-wine-50">Request Consultation</a>
+        </div>
+    </div>
+</nav>
+
+    <section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80" alt="Background" class="w-full h-full object-cover object-center transform scale-105 hover:scale-100 transition-transform duration-[20s] ease-out">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-6 tracking-wide drop-shadow-md">
+                Your Private Wine & Champagne Concierge
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 font-light max-w-2xl mx-auto">
+                Curating investment-grade portfolios and sourcing the world's rarest vintages.
+            </p>
+            <a href="contact.html" class="inline-block bg-white text-gray-900 hover:bg-wine-700 hover:text-white py-4 px-10 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 ease-in-out border border-transparent hover:border-white">
+                Request Consultation
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-4">Our Expertise</h2>
+            <div class="h-1 w-20 bg-wine-600 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="group relative bg-white p-8 border border-gray-100 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div class="mb-6 text-wine-600">
+                    <div class="h-12 w-12 bg-gray-100 rounded-full flex items-center justify-center">
+                         <span class="text-xl">📈</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-serif text-gray-900 mb-4">Wine Investment</h3>
+                <p class="text-gray-600 font-light leading-relaxed mb-8">
+                    Strategic portfolio management and market insights to turn fine wine into a high-yield asset class.
+                </p>
+                <a href="services.html" class="inline-flex items-center text-sm uppercase tracking-widest text-gray-900 hover:text-wine-700 font-semibold border-b border-transparent hover:border-wine-700 transition-colors duration-300">
+                    Learn More
+                    <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+
+            <div class="group relative bg-white p-8 border border-gray-100 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div class="mb-6 text-wine-600">
+                    <div class="h-12 w-12 bg-gray-100 rounded-full flex items-center justify-center">
+                         <span class="text-xl">🍾</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-serif text-gray-900 mb-4">Rare Sourcing</h3>
+                <p class="text-gray-600 font-light leading-relaxed mb-8">
+                    Access to exclusive allocations and hard-to-find vintages from the world’s most prestigious vineyards.
+                </p>
+                <a href="services.html" class="inline-flex items-center text-sm uppercase tracking-widest text-gray-900 hover:text-wine-700 font-semibold border-b border-transparent hover:border-wine-700 transition-colors duration-300">
+                    Learn More
+                    <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+
+            <div class="group relative bg-white p-8 border border-gray-100 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div class="mb-6 text-wine-600">
+                    <div class="h-12 w-12 bg-gray-100 rounded-full flex items-center justify-center">
+                         <span class="text-xl">🗝️</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-serif text-gray-900 mb-4">Cellar Advisory</h3>
+                <p class="text-gray-600 font-light leading-relaxed mb-8">
+                    Professional organization, valuation, and optimization tips to protect and enhance your private collection.
+                </p>
+                <a href="services.html" class="inline-flex items-center text-sm uppercase tracking-widest text-gray-900 hover:text-wine-700 font-semibold border-b border-transparent hover:border-wine-700 transition-colors duration-300">
+                    Learn More
+                    <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <section class="py-24 bg-wine-50">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+            
+            <div class="w-full md:w-1/2">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2940&auto=format&fit=crop" alt="Fine Wine Collection" class="rounded-sm shadow-xl w-full object-cover h-[500px]">
+                    <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-wine-600 z-[-1] rounded-sm hidden md:block"></div>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2">
+                <h4 class="text-wine-600 uppercase tracking-widest text-sm font-semibold mb-2">Our Philosophy</h4>
+                <h2 class="text-4xl md:text-5xl font-serif text-gray-900 mb-6 leading-tight">Heritage & <br>High Returns</h2>
+                <p class="text-gray-600 text-lg font-light leading-relaxed mb-8">
+                    Late Harvest isn't just about collecting bottles; it's about curating a legacy. We blend the passion of the sommelier with the precision of the investment analyst to build portfolios that mature as gracefully as the vintages within them.
+                </p>
+                <a href="#" class="group inline-flex items-center text-wine-900 font-semibold tracking-wide border-b border-wine-900 pb-1 hover:text-wine-600 hover:border-wine-600 transition-all duration-300">
+                    Read Our Story
+                    <svg class="ml-3 w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+            
+        </div>
+    </section>
+    <section class="bg-wine-900 py-24 text-white overflow-hidden relative">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg width="100%" height="100%">
+                <pattern id="pattern-circles" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="1" class="text-white" fill="currentColor" />
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#pattern-circles)" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-16">
+            
+            <div class="w-full md:w-1/2">
+                <div class="inline-block px-3 py-1 mb-6 border border-gold-400 text-gold-400 text-xs uppercase tracking-widest rounded-full">
+                    Investment Highlight of the Month
+                </div>
+                <h2 class="text-4xl md:text-5xl font-serif mb-6 leading-tight">
+                    Château Margaux 2015
+                </h2>
+                <p class="text-wine-100 text-lg font-light leading-relaxed mb-8">
+                    An exceptional vintage receiving 99 points from critics. This Premier Grand Cru Classé has shown a steady market appreciation of 12% over the last 18 months, making it a cornerstone for any serious portfolio.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-8 mb-10 border-t border-wine-700 pt-8">
+                    <div>
+                        <span class="block text-3xl font-serif text-white">12%</span>
+                        <span class="text-xs uppercase tracking-widest text-wine-100">Annual Growth</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-serif text-white">99</span>
+                        <span class="text-xs uppercase tracking-widest text-wine-100">Critic Score</span>
+                    </div>
+                </div>
+
+                <a href="#" class="inline-block bg-white text-wine-900 py-4 px-10 uppercase tracking-[0.2em] text-sm font-semibold hover:bg-gold-400 hover:text-white transition-colors duration-300">
+                    View Analysis
+                </a>
+            </div>
+
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1584225064785-c62a8b43d148?auto=format&fit=crop&q=80&w=800" alt="Château Margaux Bottle" class="rounded-sm shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 h-[600px] object-cover border-4 border-white/10">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 bg-wine-50 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            
+            <div class="mb-12">
+                <span class="text-wine-600 uppercase tracking-widest text-xs font-bold">Client Experiences</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mt-3">Trusted by Elite Collectors</h2>
+            </div>
+
+            <div class="relative p-10 bg-white shadow-sm rounded-sm border border-gray-100">
+                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-wine-600 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-md">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.896 14.389 16.33 15.133 16.33C16.855 16.33 16.855 12.032 16.855 12.032C15.625 12.032 14.017 12.934 14.017 10.667C14.017 8.334 15.659 6 18.232 6C20.669 6 22 8.567 22 10.667C22 15.65 17.669 21 14.017 21ZM6 21L6 18C6 16.896 6.372 16.33 7.116 16.33C8.838 16.33 8.838 12.032 8.838 12.032C7.608 12.032 6 12.934 6 10.667C6 8.334 7.642 6 10.215 6C12.652 6 14 8.567 14 10.667C14 15.65 9.651 21 6 21Z"/></svg>
+                </div>
+
+                <blockquote class="mt-6">
+                    <p class="text-xl md:text-2xl font-serif italic text-gray-700 leading-relaxed">
+                        "Late Harvest transformed my chaotic cellar into a performing asset class. Their sourcing of the '82 Bordeaux vintage was simply masterful. A true white-glove service."
+                    </p>
+                </blockquote>
+                
+                <div class="mt-8 flex items-center justify-center space-x-4">
+                    <div class="text-center">
+                        <div class="text-sm font-bold text-gray-900 uppercase tracking-widest">Jonathan S.</div>
+                        <div class="text-xs text-gold-400 mt-1">Private Investor, London</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 flex justify-center gap-12 items-center flex-wrap">
+                <span class="text-xl font-serif text-gray-400">Decanter</span>
+                <span class="text-xl font-serif text-gray-400">WineSpectator</span>
+                <span class="text-xl font-serif text-gray-400">Forbes Life</span>
+            </div>
+
+        </div>
+    </section>
+
+       <footer class="bg-gray-900 text-white pt-10 pb-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-gray-500 text-xs uppercase tracking-widest">
+                &copy; 2025 Late Harvest Wines. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

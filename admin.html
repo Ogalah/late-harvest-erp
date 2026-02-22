@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Admin | Late Harvest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { wine: { 900: '#38161b', 600: '#722F37' } }, fontFamily: { sans: ['Lato', 'sans-serif'] } } } }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 min-h-screen flex flex-col">
+
+    <nav class="bg-wine-900 text-white p-4 shadow-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-widest uppercase">Late Harvest ERP</h1>
+            <span class="text-sm bg-wine-600 px-3 py-1 rounded-full flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                Secure Portal
+            </span>
+        </div>
+    </nav>
+
+    <main id="loginScreen" class="flex-grow flex items-center justify-center p-6">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full border-t-4 border-wine-900">
+            <h2 class="text-2xl font-bold text-center mb-6 text-wine-900">Admin Login</h2>
+            
+            <div class="mb-4">
+                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email Address</label>
+                <input id="adminEmail" type="email" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors" placeholder="admin@lateharvest.co.za">
+            </div>
+            
+            <div class="mb-8">
+                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Password</label>
+                <input id="adminPassword" type="password" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors" placeholder="••••••••">
+            </div>
+
+            <button id="loginBtn" onclick="handleLogin()" class="w-full bg-wine-900 hover:bg-wine-700 text-white py-3 uppercase tracking-[0.2em] text-sm font-semibold transition-colors shadow">
+                Authenticate
+            </button>
+        </div>
+    </main>
+
+    <main id="dashboardScreen" class="max-w-7xl mx-auto p-6 mt-8 hidden w-full">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Command Center</h2>
+            <button onclick="fetchAllData()" id="refreshBtn" class="bg-wine-900 hover:bg-wine-600 text-white px-6 py-2 rounded shadow transition-colors">
+                Refresh All Data
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <h3 class="text-lg font-bold text-wine-900 mb-4 uppercase tracking-widest">Consultation Requests</h3>
+                <div class="bg-white rounded-lg shadow overflow-x-auto">
+                    <table class="min-w-full text-left border-collapse">
+                        <thead class="bg-gray-50 border-b border-gray-200 text-xs uppercase tracking-wider text-gray-500">
+                            <tr><th class="px-6 py-4">Date</th><th class="px-6 py-4">Client Details</th><th class="px-6 py-4">Interest & Message</th></tr>
+                        </thead>
+                        <tbody id="tableBody" class="divide-y divide-gray-200"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-bold text-wine-900 mb-4 uppercase tracking-widest">Allocation List</h3>
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <table class="min-w-full text-left border-collapse">
+                        <thead class="bg-gray-50 border-b border-gray-200 text-xs uppercase tracking-wider text-gray-500">
+                            <tr><th class="px-6 py-4">Date Joined</th><th class="px-6 py-4">Email Address</th></tr>
+                        </thead>
+                        <tbody id="newsletterTableBody" class="divide-y divide-gray-200"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Initialize Supabase
+        const supabaseUrl = 'https://fulwqwwoyaqlfnhoouri.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1bHdxd3dveWFxbGZuaG9vdXJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1ODQxNDMsImV4cCI6MjA4NzE2MDE0M30.m_bA3y3oG79nFnxp9vXbfFLlTIZHu1O6MnOqLjeBK0Q';
+        const db = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        // --- THE BOUNCER: Login Function ---
+        async function handleLogin() {
+            try {
+                const btn = document.getElementById('loginBtn');
+                btn.innerText = "VERIFYING...";
+
+                const email = document.getElementById('adminEmail').value;
+                const password = document.getElementById('adminPassword').value;
+
+                if (!email || !password) {
+                    alert("Please enter both email and password.");
+                    btn.innerText = "Authenticate";
+                    return;
+                }
+
+                // Attempt to log in to Supabase
+                const { data, error } = await db.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) {
+                    alert("Access Denied: " + error.message);
+                    btn.innerText = "Authenticate";
+                    return;
+                }
+
+                // If successful: Hide login, show dashboard, and fetch data!
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('dashboardScreen').classList.remove('hidden');
+                fetchAllData();
+
+            } catch (err) {
+                alert("CRASH DETECTED: " + err.message);
+                document.getElementById('loginBtn').innerText = "Authenticate";
+            }
+        }
+
+        // --- FETCH DATA FUNCTION ---
+        async function fetchAllData() {
+            try {
+                const btn = document.getElementById('refreshBtn');
+                const tableBody = document.getElementById('tableBody');
+                const newsletterBody = document.getElementById('newsletterTableBody');
+                
+                if (btn) btn.innerText = "Loading...";
+
+                // Fetch Consultations
+                const { data: cData, error: cError } = await db.from('consultations').select('*').order('created_at', { ascending: false });
+                if (cError) throw cError;
+
+                tableBody.innerHTML = '';
+                if (cData.length === 0) tableBody.innerHTML = '<tr><td colspan="3" class="px-6 py-4 text-center">No requests found.</td></tr>';
+                else {
+                    cData.forEach(client => {
+                        const date = new Date(client.created_at).toLocaleDateString();
+                        tableBody.innerHTML += `
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${date}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm"><div class="font-bold text-gray-900">${client.full_name}</div><div class="text-gray-500">${client.email}</div><div class="text-xs text-gray-400">${client.phone}</div></td>
+                                <td class="px-6 py-4 text-sm text-gray-600"><span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-semibold mb-1 inline-block">${client.interest_area}</span><div class="max-w-xs truncate">${client.message || 'No message'}</div></td>
+                            </tr>
+                        `;
+                    });
+                }
+
+                // Fetch Newsletters
+                const { data: nData, error: nError } = await db.from('newsletter_subscribers').select('*').order('created_at', { ascending: false });
+                if (nError) throw nError;
+
+                newsletterBody.innerHTML = '';
+                if (nData.length === 0) newsletterBody.innerHTML = '<tr><td colspan="2" class="px-6 py-4 text-center">No subscribers yet.</td></tr>';
+                else {
+                    nData.forEach(sub => {
+                        const date = new Date(sub.created_at).toLocaleDateString();
+                        newsletterBody.innerHTML += `
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${date}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${sub.email}</td>
+                            </tr>
+                        `;
+                    });
+                }
+
+                if (btn) btn.innerText = "Refresh All Data";
+
+            } catch (err) {
+                alert("Error fetching data: " + err.message);
+                if (document.getElementById('refreshBtn')) document.getElementById('refreshBtn').innerText = "Refresh All Data";
+            }
+        }
+    </script>
+</body>
+</html>

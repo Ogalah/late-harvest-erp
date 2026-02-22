@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Consultations | Late Harvest Wines</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wine: { 50: '#fdf2f4', 100: '#fce7ea', 600: '#722F37', 700: '#5D252D', 900: '#38161b' },
+                        gold: { 400: '#D4AF37' }
+                    },
+                    fontFamily: { sans: ['Lato', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-800 antialiased font-sans flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-serif text-wine-900 tracking-wide font-bold">LATE HARVEST</a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Home</a>
+                    <a href="about.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">About</a>
+                    <a href="services.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Services</a>
+                    <a href="blog.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Journal</a>
+                </div>
+                <div class="hidden md:flex">
+                    <a href="contact.html" class="px-6 py-2 bg-wine-900 text-white text-xs uppercase tracking-widest font-bold transition-colors duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-wine-900 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">Home</a>
+                <a href="about.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">About</a>
+                <a href="services.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">Services</a>
+                <a href="blog.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">Journal</a>
+                <a href="contact.html" class="block px-3 py-3 text-base font-bold text-wine-900 hover:bg-wine-50 bg-wine-50">Request Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-gray-50 pt-40 pb-20 text-center px-6">
+        <h1 class="text-4xl md:text-5xl font-serif text-gray-900 mb-6">Request a Consultation</h1>
+        <p class="text-gray-600 text-lg font-light max-w-2xl mx-auto">
+            Connect with our advisory team to discuss your portfolio, rare sourcing requests, or cellar management needs.
+        </p>
+    </section>
+
+    <section class="py-20 px-6 max-w-7xl mx-auto flex-grow">
+        <div class="flex flex-col lg:flex-row gap-16">
+            
+            <div class="lg:w-1/3">
+                <h2 class="text-2xl font-serif text-gray-900 mb-8">Get in Touch</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Our Office</h3>
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        123 Vintage Boulevard<br>
+                        Stellenbosch, 7600<br>
+                        South Africa
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Direct Contact</h3>
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        Email: advisory@lateharvest.co.za<br>
+                        Phone: +27 (0) 21 555 0198
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Business Hours</h3>
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                        By Appointment Only
+                    </p>
+                </div>
+            </div>
+
+            <div class="lg:w-2/3 bg-gray-50 p-10 rounded-sm">
+                <form id="consultationForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Full Name</label>
+                            <input id="fullName" type="text" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="e.g. Jonathan Doe">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email Address</label>
+                            <input id="emailAddress" type="email" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="name@example.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Phone Number</label>
+                            <input id="phoneNumber" type="tel" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="+27 82 000 0000">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Area of Interest</label>
+                            <select id="interestArea" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent text-gray-700">
+                                <option>Wine Investment Portfolio</option>
+                                <option>Rare Sourcing</option>
+                                <option>Cellar Advisory</option>
+                                <option>Other Inquiry</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-10">
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Message</label>
+                        <textarea id="clientMessage" rows="4" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="Tell us about your current collection or investment goals..."></textarea>
+                    </div>
+
+                    <button id="submitBtn" type="button" onclick="sendToVault()" class="bg-wine-900 text-white px-10 py-4 uppercase tracking-[0.2em] text-sm font-semibold hover:bg-wine-700 transition-all duration-300 w-full md:w-auto">
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white pt-10 pb-10 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-gray-500 text-xs uppercase tracking-widest">
+                &copy; 2026 Late Harvest Wines. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        async function sendToVault() {
+            try {
+                // Security check: Make sure the library actually loaded
+                if (!window.supabase) {
+                    alert("ERROR: Supabase library failed to load. Check your firewall.");
+                    return;
+                }
+
+                // Initialize the connection exactly when the button is clicked
+                const supabaseUrl = 'https://fulwqwwoyaqlfnhoouri.supabase.co';
+                const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1bHdxd3dveWFxbGZuaG9vdXJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1ODQxNDMsImV4cCI6MjA4NzE2MDE0M30.m_bA3y3oG79nFnxp9vXbfFLlTIZHu1O6MnOqLjeBK0Q';
+                
+                // We name it 'db' here to prevent any naming confusion for the browser
+                const db = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+                const btn = document.getElementById('submitBtn');
+                btn.innerText = "Sending...";
+
+                // Grab the data from the form
+                const name = document.getElementById('fullName').value;
+                const email = document.getElementById('emailAddress').value;
+                const phone = document.getElementById('phoneNumber').value;
+                const interest = document.getElementById('interestArea').value;
+                const message = document.getElementById('clientMessage').value;
+
+                if(!name || !email) {
+                    alert("Please type a name and email first.");
+                    btn.innerText = "Submit Request";
+                    return;
+                }
+
+                // Send to database vault
+                const { data, error } = await db
+                    .from('consultations')
+                    .insert([
+                        { 
+                            full_name: name, 
+                            email: email, 
+                            phone: phone, 
+                            interest_area: interest, 
+                            message: message 
+                        }
+                    ]);
+
+                // Did the vault accept it?
+                if (error) {
+                    alert("Vault Error: " + error.message);
+                    btn.innerText = "Submit Request";
+                } else {
+                    alert("Success! Rodreck is in the vault.");
+                    btn.innerText = "Submitted ✓";
+                    
+                    // Clear out the boxes
+                    document.getElementById('fullName').value = '';
+                    document.getElementById('emailAddress').value = '';
+                    document.getElementById('phoneNumber').value = '';
+                    document.getElementById('clientMessage').value = '';
+                }
+
+            } catch (err) {
+                alert("CRASH DETECTED: " + err.message);
+                document.getElementById('submitBtn').innerText = "Submit Request";
+            }
+        }
+    </script>
+</body>
+</html>
