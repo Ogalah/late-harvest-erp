@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Market Report | Late Harvest Wines</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wine: { 50: '#fdf2f4', 100: '#fce7ea', 600: '#722F37', 700: '#5D252D', 900: '#38161b' },
+                        gold: { 400: '#D4AF37' }
+                    },
+                    fontFamily: { sans: ['Lato', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased font-sans">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-serif text-wine-900 tracking-wide font-bold">LATE HARVEST</a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Home</a>
+                    <a href="about.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">About</a>
+                    <a href="services.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Services</a>
+                    <a href="blog.html" class="text-sm uppercase tracking-widest text-wine-600 font-bold transition-colors duration-300">Journal</a>
+                </div>
+                <div class="hidden md:flex">
+                    <a href="contact.html" class="px-6 py-2 bg-wine-900 text-white text-xs uppercase tracking-widest hover:bg-wine-700 transition-colors duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-wine-900 pt-40 pb-20 text-center px-6 text-white">
+        <span class="text-gold-400 uppercase tracking-widest text-xs font-bold mb-4 block">Quarterly Analysis</span>
+        <h1 class="text-4xl md:text-5xl font-serif mb-6">Global Fine Wine Market: Q1</h1>
+        <p class="text-gray-300 text-lg font-light max-w-2xl mx-auto">
+            Interactive performance data across the industry's most critical investment regions.
+        </p>
+    </section>
+
+    <section class="px-6 max-w-5xl mx-auto -mt-10 relative z-10 mb-20">
+        <div class="bg-white shadow-xl rounded-sm p-6 md:p-10 border border-gray-100">
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h2 class="text-2xl font-serif text-gray-900">5-Year Regional Performance Index</h2>
+                    <p class="text-sm text-gray-500 mt-1">Baseline score of 100 set in Q1 2021.</p>
+                </div>
+            </div>
+            
+            <div class="relative h-[400px] w-full">
+                <canvas id="wineMarketChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-3xl mx-auto px-6 pb-24">
+        <h3 class="text-2xl font-serif text-gray-900 mb-6">Executive Summary</h3>
+        <p class="text-gray-600 leading-relaxed mb-6">
+            The first quarter of 2026 continues to demonstrate the resilience of tangible luxury assets. While <strong class="text-wine-900">Burgundy</strong> experienced explosive, unprecedented growth between 2021 and 2023, the market has entered a healthy consolidation phase, heavily punishing secondary producers while blue-chip Grand Crus hold firm.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-6">
+            Conversely, <strong class="text-gold-400">Champagne</strong> continues its steady march upward. No longer viewed simply as a celebratory beverage, prestige cuvées offer the most attractive risk-to-reward ratio in the current market, providing vital diversification against Burgundy's volatility.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+            <strong class="text-gray-800">Bordeaux</strong> remains the undisputed bedrock of any serious portfolio. While it lacks the dramatic spikes of its regional peers, its massive liquidity and global brand recognition provide a secure, slow-yielding foundation for long-term wealth preservation.
+        </p>
+    </section>
+
+    <footer class="bg-gray-900 text-white pt-10 pb-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-gray-500 text-xs uppercase tracking-widest">
+                &copy; 2026 Late Harvest Wines. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Grab the canvas element
+        const ctx = document.getElementById('wineMarketChart').getContext('2d');
+
+        // Draw the chart
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2021', '2022', '2023', '2024', '2025', 'Q1 2026'],
+                datasets: [
+                    {
+                        label: 'Burgundy (High Growth/Volatile)',
+                        data: [100, 135, 175, 155, 148, 152],
+                        borderColor: '#722F37', // Late Harvest Wine Color
+                        backgroundColor: 'transparent',
+                        borderWidth: 3,
+                        tension: 0.4, // This makes the line beautifully curved instead of jagged
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    },
+                    {
+                        label: 'Champagne (Steady Rising)',
+                        data: [100, 108, 122, 138, 145, 150],
+                        borderColor: '#D4AF37', // Late Harvest Gold Color
+                        backgroundColor: 'transparent',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    },
+                    {
+                        label: 'Bordeaux (Stable Bedrock)',
+                        data: [100, 102, 105, 104, 107, 109],
+                        borderColor: '#4b5563', // Solid Gray
+                        backgroundColor: 'transparent',
+                        borderWidth: 3,
+                        borderDash: [5, 5], // Dashed line for the stable baseline
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false, // Makes the tooltip appear anywhere on the vertical line
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: { family: "'Lato', sans-serif", size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#38161b',
+                        titleFont: { family: "'Lato', sans-serif", size: 14 },
+                        bodyFont: { family: "'Lato', sans-serif", size: 13 },
+                        padding: 12,
+                        cornerRadius: 4,
+                        displayColors: true
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: { color: '#f3f4f6' }, // Very light gray grid lines
+                        title: {
+                            display: true,
+                            text: 'Market Index Value',
+                            color: '#9ca3af',
+                            font: { size: 11, tracking: 1 }
+                        }
+                    },
+                    x: {
+                        grid: { display: false } // Hide vertical grid lines for a cleaner look
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
