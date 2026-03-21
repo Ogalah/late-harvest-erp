@@ -20,6 +20,18 @@
             }
         }
     </script>
+    <style>
+        .toast-enter { transform: translateY(20px); opacity: 0; }
+        .toast-active { transform: translateY(0); opacity: 1; }
+        
+        /* 2026 Luxury WhatsApp Pulse */
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        .whatsapp-pulse { animation: pulse-gold 2s infinite; }
+    </style>
 </head>
 <body class="bg-white text-gray-800 antialiased font-sans flex flex-col min-h-screen">
 
@@ -30,38 +42,22 @@
                     <a href="index.html" class="text-2xl font-serif text-wine-900 tracking-wide font-bold">LATE HARVEST</a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Home</a>
-                    <a href="about.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">About</a>
-                    <a href="services.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Services</a>
-                    <a href="blog.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600 transition-colors duration-300">Journal</a>
+                    <a href="index.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600">Home</a>
+                    <a href="about.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600">About</a>
+                    <a href="services.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600">Services</a>
+                    <a href="blog.html" class="text-sm uppercase tracking-widest text-gray-600 hover:text-wine-600">Journal</a>
                 </div>
                 <div class="hidden md:flex">
-                    <a href="contact.html" class="px-6 py-2 bg-wine-900 text-white text-xs uppercase tracking-widest font-bold transition-colors duration-300">Contact</a>
+                    <a href="contact.html" class="px-6 py-2 bg-wine-900 text-white text-xs uppercase tracking-widest font-bold">Contact</a>
                 </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-wine-900 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="index.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">Home</a>
-                <a href="about.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">About</a>
-                <a href="services.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">Services</a>
-                <a href="blog.html" class="block px-3 py-3 text-base font-serif text-gray-900 hover:bg-wine-50">Journal</a>
-                <a href="contact.html" class="block px-3 py-3 text-base font-bold text-wine-900 hover:bg-wine-50 bg-wine-50">Request Consultation</a>
             </div>
         </div>
     </nav>
 
     <section class="bg-gray-50 pt-40 pb-20 text-center px-6">
-        <h1 class="text-4xl md:text-5xl font-serif text-gray-900 mb-6">Request a Consultation</h1>
-        <p class="text-gray-600 text-lg font-light max-w-2xl mx-auto">
-            Connect with our advisory team to discuss your portfolio, rare sourcing requests, or cellar management needs.
+        <h1 class="text-4xl md:text-5xl font-serif text-gray-900 mb-6 tracking-tight">Request a Consultation</h1>
+        <p class="text-gray-600 text-lg font-light max-w-2xl mx-auto italic">
+            "Fine wine is the only investment you can drink if the market crashes."
         </p>
     </section>
 
@@ -69,55 +65,48 @@
         <div class="flex flex-col lg:flex-row gap-16">
             
             <div class="lg:w-1/3">
-                <h2 class="text-2xl font-serif text-gray-900 mb-8">Get in Touch</h2>
+                <h2 class="text-2xl font-serif text-gray-900 mb-8 underline decoration-gold-400 decoration-1 underline-offset-8">Get in Touch</h2>
                 
-                <div class="mb-8">
-                    <h3 class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Our Office</h3>
+                <div class="mb-10">
+                    <h3 class="text-xs uppercase tracking-widest text-wine-600 font-bold mb-3">Direct Concierge</h3>
                     <p class="text-gray-600 font-light leading-relaxed">
-                        123 Vintage Boulevard<br>
-                        Stellenbosch, 7600<br>
-                        South Africa
+                        Email: mgj@lateharvest.co.za<br>
+                        Phone: +27 84 675 9022
                     </p>
                 </div>
 
-                <div class="mb-8">
-                    <h3 class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Direct Contact</h3>
-                    <p class="text-gray-600 font-light leading-relaxed">
-                        Email: advisory@lateharvest.co.za<br>
-                        Phone: +27 (0) 21 555 0198
-                    </p>
-                </div>
-
-                <div>
-                    <h3 class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Business Hours</h3>
-                    <p class="text-gray-600 font-light leading-relaxed">
-                        Monday - Friday: 9:00 AM - 6:00 PM<br>
-                        By Appointment Only
-                    </p>
+                <div class="mb-10">
+                    <h3 class="text-xs uppercase tracking-widest text-wine-600 font-bold mb-4">Follow the Journey</h3>
+                    <div class="flex space-x-6 text-gray-400">
+                        <a href="#" class="hover:text-wine-600 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a>
+                        <a href="#" class="hover:text-wine-600 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.335 3.608 1.31.975.975 1.248 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.335 2.633-1.31 3.608-.975.975-2.242 1.248-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.335-3.608-1.31-.975-.975-1.248-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.335-2.633 1.31-3.608.975-.975 2.242-1.248 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.337 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.337-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.338-2.617-6.78-6.98-6.98-1.281-.059-1.69-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="#" class="hover:text-black transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.6-4.12-1.31a8.6 8.6 0 01-1.44-1.01c-.02 2.44-.01 4.88-.01 7.32-.03 2.51-.57 5.19-2.6 6.97-2.01 1.83-5.07 2.11-7.51 1.12-2.43-.91-4.2-3.32-4.39-5.92-.21-2.69 1.08-5.5 3.32-7 1.62-1.12 3.65-1.51 5.57-1.1v4.05c-1.1-.34-2.42-.19-3.41.44-1.07.66-1.62 1.99-1.41 3.23.16 1.06.91 1.98 1.91 2.34 1.05.4 2.29.21 3.16-.52.88-.73 1.25-1.89 1.22-3.02-.01-4.32 0-8.64 0-12.96z"/></svg></a>
+                        <a href="#" class="hover:text-blue-700 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="lg:w-2/3 bg-gray-50 p-10 rounded-sm">
-                <form id="consultationForm">
+            <div class="lg:w-2/3 bg-gray-50 p-10 rounded-sm border border-gray-100 shadow-sm relative overflow-hidden">
+                <form id="consultationForm" action="https://formspree.io/f/xreydnew" method="POST">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                         <div>
-                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Full Name</label>
-                            <input id="fullName" type="text" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="e.g. Jonathan Doe">
+                            <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Full Name</label>
+                            <input id="fullName" name="name" type="text" required class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="John Doe">
                         </div>
                         <div>
-                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email Address</label>
-                            <input id="emailAddress" type="email" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="name@example.com">
+                            <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Email Address</label>
+                            <input id="emailAddress" name="email" type="email" required class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="john@example.com">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                         <div>
-                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Phone Number</label>
-                            <input id="phoneNumber" type="tel" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="+27 82 000 0000">
+                            <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Phone Number</label>
+                            <input id="phoneNumber" name="phone" type="tel" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="+27...">
                         </div>
                         <div>
-                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Area of Interest</label>
-                            <select id="interestArea" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent text-gray-700">
+                            <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Consultation Type</label>
+                            <select id="interestArea" name="interest" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent text-gray-700">
                                 <option>Wine Investment Portfolio</option>
                                 <option>Rare Sourcing</option>
                                 <option>Cellar Advisory</option>
@@ -127,11 +116,11 @@
                     </div>
 
                     <div class="mb-10">
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Message</label>
-                        <textarea id="clientMessage" rows="4" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="Tell us about your current collection or investment goals..."></textarea>
+                        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Message</label>
+                        <textarea id="clientMessage" name="message" rows="4" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-wine-600 transition-colors bg-transparent" placeholder="Share your investment goals..."></textarea>
                     </div>
 
-                    <button id="submitBtn" type="button" onclick="sendToVault()" class="bg-wine-900 text-white px-10 py-4 uppercase tracking-[0.2em] text-sm font-semibold hover:bg-wine-700 transition-all duration-300 w-full md:w-auto">
+                    <button id="submitBtn" type="submit" class="bg-wine-900 text-white px-10 py-4 uppercase tracking-[0.2em] text-sm font-semibold hover:bg-wine-700 transition-all duration-300 w-full md:w-auto">
                         Submit Request
                     </button>
                 </form>
@@ -139,81 +128,84 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white pt-10 pb-10 border-t border-gray-800 mt-auto">
+    <a href="https://wa.me/27846759022?text=Hello%20Late%20Harvest,%20I%20would%20like%20to%20inquire%20about%20a%20private%20wine%20consultation." 
+       target="_blank" 
+       class="fixed bottom-8 left-8 z-[100] flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl transition-transform hover:scale-110 whatsapp-pulse border-2 border-white">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.076.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.63 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <div id="toast-container" class="fixed bottom-10 right-10 z-[110] flex flex-col gap-4"></div>
+
+    <footer class="bg-gray-900 text-white py-10 border-t border-gray-800 mt-auto">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-gray-500 text-xs uppercase tracking-widest">
-                &copy; 2026 Late Harvest Wines. All rights reserved.
-            </p>
+            <p class="text-gray-500 text-xs uppercase tracking-widest">&copy; 2026 Late Harvest Wines.</p>
         </div>
     </footer>
 
-     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        async function sendToVault() {
-            try {
-                // Security check: Make sure the library actually loaded
-                if (!window.supabase) {
-                    alert("ERROR: Supabase library failed to load. Check your firewall.");
-                    return;
-                }
+        // 1. Toast Notification Logic
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const colorClass = type === 'success' ? 'bg-white text-gray-900 border-wine-600' : 'bg-wine-900 text-white border-gold-400';
+            
+            toast.className = `px-6 py-4 rounded shadow-2xl transition-all duration-500 transform translate-y-10 opacity-0 flex items-center gap-4 border-l-4 ${colorClass}`;
+            toast.innerHTML = `<span class="text-xs font-bold uppercase tracking-widest">${type === 'success' ? 'Vault Secured' : 'Alert'}</span><span class="text-sm font-light">${message}</span>`;
+            
+            container.appendChild(toast);
+            setTimeout(() => { toast.classList.remove('translate-y-10', 'opacity-0'); }, 100);
+            setTimeout(() => { 
+                toast.classList.add('opacity-0'); 
+                setTimeout(() => toast.remove(), 500);
+            }, 5000);
+        }
 
-                // Initialize the connection exactly when the button is clicked
+        // 2. Form Submission
+        const form = document.getElementById('consultationForm');
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerText;
+            btn.innerText = "Processing...";
+
+            try {
                 const supabaseUrl = 'https://fulwqwwoyaqlfnhoouri.supabase.co';
                 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1bHdxd3dveWFxbGZuaG9vdXJpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1ODQxNDMsImV4cCI6MjA4NzE2MDE0M30.m_bA3y3oG79nFnxp9vXbfFLlTIZHu1O6MnOqLjeBK0Q';
-                
-                // We name it 'db' here to prevent any naming confusion for the browser
                 const db = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-                const btn = document.getElementById('submitBtn');
-                btn.innerText = "Sending...";
+                const formData = new FormData(form);
+                const submission = Object.fromEntries(formData.entries());
 
-                // Grab the data from the form
-                const name = document.getElementById('fullName').value;
-                const email = document.getElementById('emailAddress').value;
-                const phone = document.getElementById('phoneNumber').value;
-                const interest = document.getElementById('interestArea').value;
-                const message = document.getElementById('clientMessage').value;
+                const { error: vaultError } = await db.from('consultations').insert([{ 
+                    full_name: submission.name, 
+                    email: submission.email, 
+                    phone: submission.phone, 
+                    interest_area: submission.interest, 
+                    message: submission.message 
+                }]);
 
-                if(!name || !email) {
-                    alert("Please type a name and email first.");
-                    btn.innerText = "Submit Request";
-                    return;
-                }
+                if (vaultError) throw new Error("Vault Security Error");
 
-                // Send to database vault
-                const { data, error } = await db
-                    .from('consultations')
-                    .insert([
-                        { 
-                            full_name: name, 
-                            email: email, 
-                            phone: phone, 
-                            interest_area: interest, 
-                            message: message 
-                        }
-                    ]);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
 
-                // Did the vault accept it?
-                if (error) {
-                    alert("Vault Error: " + error.message);
-                    btn.innerText = "Submit Request";
-                } else {
-                    alert("Success! Rodreck is in the vault.");
-                    btn.innerText = "Submitted ✓";
-                    
-                    // Clear out the boxes
-                    document.getElementById('fullName').value = '';
-                    document.getElementById('emailAddress').value = '';
-                    document.getElementById('phoneNumber').value = '';
-                    document.getElementById('clientMessage').value = '';
-                }
+                if (!response.ok) throw new Error("Notification service offline.");
+
+                showToast("Request logged. An advisor will connect shortly.");
+                btn.innerText = "Submitted ✓";
+                form.reset();
 
             } catch (err) {
-                alert("CRASH DETECTED: " + err.message);
-                document.getElementById('submitBtn').innerText = "Submit Request";
+                showToast(err.message, "error");
+                btn.innerText = originalText;
             }
-        }
+        });
     </script>
 </body>
 </html>
